@@ -29,4 +29,20 @@ public class CountryServiceImpl implements CountryService {
     public Country get(long id) {
         return countryRepository.findById(id).orElseThrow(() -> new NotFoundException("country", "id", id));
     }
+
+    @Override
+    public Country update(Country country, long id) {
+        Country existCountry = countryRepository.findById(id).orElseThrow(() ->
+                new NotFoundException("сountry", "id", id));
+        existCountry.setName(country.getName());
+        countryRepository.save(existCountry);
+        return null;
+    }
+
+    @Override
+    public void delete(long id) {
+        countryRepository.findById(id).orElseThrow(() ->
+                new NotFoundException("country", "id", id));
+        countryRepository.deleteById(id);
+    }
 }
