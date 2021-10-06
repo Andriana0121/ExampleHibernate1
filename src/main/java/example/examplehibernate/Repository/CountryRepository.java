@@ -1,4 +1,7 @@
 package example.examplehibernate.Repository;
 
-public interface CountryRepository {
+import example.examplehibernate.Model.Country;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CountryRepository extends JpaRepository<Country, Long> {
 }
