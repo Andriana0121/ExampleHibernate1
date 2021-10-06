@@ -10,7 +10,7 @@ public class NotFoundException extends RuntimeException {
     private Object fieldValue;
 
     public NotFoundException(String resourceName, String fieldName, Object fieldValue) {
-        super(resourceName + " not found with" + fieldName + "=" + fieldValue.toString());
+        super(resourceName + " not found " + fieldName + " : " + fieldValue.toString());
         this.resourceName = resourceName;
         this.fieldName = fieldName;
         this.fieldValue = fieldValue;
